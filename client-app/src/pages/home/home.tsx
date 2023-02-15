@@ -1,5 +1,7 @@
+import { DivideBlock } from '@babylonjs/core'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SocketTemp } from '../socket/socket-temp'
 
 const Home = () => {
     const navigate = useNavigate()
@@ -9,9 +11,17 @@ const Home = () => {
                 <p className='text-white text-xl font-medium '> Welcome to Harviz Metaverse !!</p>
                 <button className='bg-blue-500 px-6 py-2 shadow-md shadow-gray-900 font-semibold hover:bg-blue-400 rounded-md text-2xl ' onClick={() => { navigate("/hub") }}>Enter Hub</button>
             </div>
+            {/* <SocketTemp/> */}
 
         </div>
     )
 }
 
 export default Home
+
+
+
+const Pcomp =()=>{
+    return <div></div>
+}
+
