@@ -21,6 +21,7 @@ function App() {
     <PersistGate persistor={persistor}>
       <Routes >
         <Route path="/" element={<Home/>} />
+        <Route path="/hub" element={<Hub/>} />
         <Route path="/auth/:id" element={<Auth/>} />
         <Route path="/hub1" element={<Hub1/>} />
       
