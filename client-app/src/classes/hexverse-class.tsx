@@ -1,16 +1,12 @@
-import { Camera, Light } from "@babylonjs/core";
+import { Camera, FreeCamera, Light, Mesh, Vector3 } from "@babylonjs/core";
 
 interface IEnvironment {}
 
 interface IUsers {}
 
-
-export class Hexverse {
-  
-}
+export class Hexverse {}
 
 export class Users {}
-
 
 export class Environment {
   lights: Light[];
@@ -26,11 +22,12 @@ export class Environment {
 
 export class World {
   private environment: IEnvironment;
-//   private users: IUsers[];
+  //   private users: IUsers[];
 
   constructor(environment: IEnvironment) {
     this.environment = environment;
   }
 }
 
-export class User {}
+
+

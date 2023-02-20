@@ -1,4 +1,6 @@
-
+.background{
+  background-color: black;
+}
 
 #my-canvas {
   /* display: flex; */

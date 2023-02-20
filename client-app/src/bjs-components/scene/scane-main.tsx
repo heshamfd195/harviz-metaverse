@@ -8,11 +8,13 @@ import { MyFallback } from "../loaders/asset-fallback";
 import { AssetManagerLoader } from "../managers/asset-managar";
 import { DebugLayerSetter } from "../setters/debug-layer";
 import '@babylonjs/loaders'
+import "@babylonjs/inspector";
 
 let box: Mesh | undefined;
 
 const onSceneReady = (scene: Scene) => {
   // This creates and positions a free camera (non-mesh)
+  
   const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
   // This targets the camera to scene origin
@@ -47,9 +49,9 @@ const onSceneReady = (scene: Scene) => {
   // assetsManager.load()
 
 
-  SceneLoader.Append("assets/", "Dude.babylon", scene, function (scene) {
+  // SceneLoader.Append("assets/", "Dude.babylon", scene, function (scene) {
 
-  })
+  // })
 };
 
 /**
