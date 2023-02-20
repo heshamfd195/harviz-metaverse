@@ -3,9 +3,7 @@ import React from 'react'
 import { useScene } from 'react-babylonjs';
 
 
-export const ButtonMovers: React.FC<any> = ({onUserPing}) => {
-
-
+export const ButtonMovers: React.FC<any> = ({onUserPing,onUserAnimate}) => {
 
   const scene = useScene()!
   const walkingAnimation = scene?.getAnimationGroupByName("Walking")
@@ -68,7 +66,10 @@ export const ButtonMovers: React.FC<any> = ({onUserPing}) => {
 
 
     if(keydown){
+      // console.log(hero.position)
+      // console.log(hero)
       onUserPing(hero.position)
+      
     }
 
 
@@ -78,11 +79,13 @@ export const ButtonMovers: React.FC<any> = ({onUserPing}) => {
         animating = true;
         if (inputMap["s"]) {
           //Walk backwards
+          // onUserAnimate("WalkingBack")
           walkBackAnim?.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
         }
 
         else {
           //Walk
+          // onUserAnimate("Walking")
           walkAnim?.start(true, 1.0, walkAnim.from, walkAnim.to, false);
         }
       }
@@ -90,6 +93,7 @@ export const ButtonMovers: React.FC<any> = ({onUserPing}) => {
     else {
 
       if (animating) {
+        // onUserAnimate("Idle")
         //Default animation is idle when no key is down     
         idleAnim?.start(true, 1.0, idleAnim.from, idleAnim.to, false);
 

@@ -3,13 +3,15 @@ import React, { useEffect, useState } from "react";
 import { w3cwebsocket } from "websocket";
 
 const client = new w3cwebsocket("ws://127.0.0.1:8080");
+// const client = new w3cwebsocket("ws://harviz-metaverse-backend.vercel.app");
 
 export const SocketTemp = () => {
   const [logInState, setLogInState] = useState({
     isLogIn: false,
     userName: "",
     messages: [] as any[],
-  });  const [name, setName] = useState("");
+  })
+  const [name, setName] = useState("");
   const [enteredMsg,setMsg] =useState("")
 
   const onButtonClicked = (value: any) => {
