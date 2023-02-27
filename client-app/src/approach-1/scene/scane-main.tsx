@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import {
   FreeCamera,
   Vector3,
@@ -17,11 +17,23 @@ import "@babylonjs/inspector";
 import "@babylonjs/loaders";
 import { User } from "../../classes/user/user";
 import { useSelector } from "react-redux";
+import { AdvancedDynamicTexture, Button } from "@babylonjs/gui";
 
 let box: Mesh | undefined;
 
 export const SceneMain = () => {
+
+  const [data,setData]=useState({flag:true})
   const {name} = useSelector((state:any) => state.appState._authentication)
+  const onSceneUpdate=()=>{
+    // setData("fouad")
+  }
+
+  // Lookup for StateUpdate in BJS Scene
+  useEffect(()=>{
+   
+    
+  },[onSceneUpdate])
   
   const onSceneReady = (scene: Scene) => {
     // This creates and positions a free camera (non-mesh)
@@ -41,13 +53,32 @@ export const SceneMain = () => {
     let loader =SceneLoader.ImportMesh("", user.avatar.url, user.avatar.fileName, scene, function (newMeshes) {
      let mesh = newMeshes[0]
      mesh.rotation =new Vector3(0,-2*Math.PI,0)
+
+
+    //GUI
+    var advancedTexture = AdvancedDynamicTexture.CreateFullscreenUI("UI");
+
+    var button1 = Button.CreateSimpleButton("but1", "Click Me");
+    button1.width = "150px"
+    button1.height = "40px";
+    button1.color = "white";
+    button1.cornerRadius = 20;
+    button1.background = "green";
+    button1.onPointerUpObservable.add(function() {
+        // alert("you did it!");
+        onSceneUpdate()
+
+    });
+    advancedTexture.addControl(button1);    
+
+
   });
 
 
     
   };
   return (
-    <div className="w-screen h-screen">
+    <div >
       <SceneComponent
         antialias
         onSceneReady={onSceneReady}

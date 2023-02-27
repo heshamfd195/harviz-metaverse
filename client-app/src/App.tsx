@@ -24,7 +24,6 @@ function App() {
         <Route path="/hub" element={<Hub/>} />
         <Route path="/auth/:id" element={<Auth/>} />
         <Route path="/hub1" element={<Hub1/>} />
-      
       </Routes>
       </PersistGate>
     </Provider>
